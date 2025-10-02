@@ -2,6 +2,12 @@
 
 一个基于AI的留学生服务报价网站，使用Gemini API自动生成个性化报价单。
 
+## 在线演示
+
+🚀 **快速部署**: 
+- **Vercel**: [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/HecreReed/ai-quote-website&root-directory=frontend)
+- **Railway (后端)**: [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/ai-quote-website)
+
 ## 功能特性
 
 - 🤖 **AI智能报价**: 基于Gemini API生成个性化报价
@@ -40,7 +46,7 @@
 
 1. **克隆项目**
 ```bash
-git clone <repository-url>
+git clone https://github.com/HecreReed/ai-quote-website.git
 cd ai-quote-website
 ```
 
@@ -130,21 +136,54 @@ ai-quote-website/
 - **GET** `/api/quotation/health`
 - **响应**: `{ "status": "OK", "service": "quotation" }`
 
+### 获取Gemini API Key
+
+1. 访问 [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. 登录Google账号并创建新的API密钥
+3. 将API密钥复制到环境变量中
+
+> **注意**: Gemini API目前在某些地区可能需要科学上网才能访问
+
 ## 部署说明
 
-### 前端部署 (GitHub Pages)
-```bash
-cd frontend
-npm run build
-# 将 dist/ 目录内容部署到 GitHub Pages
-```
+### 前端部署
 
-### 后端部署 (Vercel/Railway)
-```bash
-cd backend
-npm run build
-# 部署 dist/ 目录
-```
+**推荐: Vercel (免费)**
+1. 访问 [Vercel](https://vercel.com)
+2. 导入GitHub仓库: `https://github.com/HecreReed/ai-quote-website`
+3. 设置构建配置:
+   - Framework: Vite
+   - Root Directory: `frontend`
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+4. 添加环境变量: `VITE_API_URL=your_backend_url`
+
+**Netlify**
+1. 访问 [Netlify](https://netlify.com)
+2. 连接GitHub仓库
+3. 设置:
+   - Base directory: `frontend`
+   - Build command: `npm run build`
+   - Publish directory: `frontend/dist`
+
+### 后端部署
+
+**推荐: Railway (免费额度)**
+1. 访问 [Railway](https://railway.app)
+2. 导入GitHub仓库
+3. 设置环境变量:
+   - `GEMINI_API_KEY`: 你的Gemini API密钥
+   - `PORT`: Railway自动设置
+   - `NODE_ENV`: production
+   - `CORS_ORIGIN`: 你的前端域名
+
+**Render**
+1. 访问 [Render](https://render.com)
+2. 创建Web Service
+3. 设置:
+   - Root Directory: `backend`
+   - Build Command: `npm install && npm run build`
+   - Start Command: `npm start`
 
 ### 环境变量配置
 确保在生产环境中正确配置所有环境变量，特别是 `GEMINI_API_KEY`。
@@ -194,8 +233,13 @@ npm run build
 
 ## 许可证
 
-本项目采用 MIT 许可证。详见 [LICENSE](LICENSE) 文件。
+本项目采用 MIT 许可证。
 
 ## 联系方式
 
-如有问题或建议，请提交 Issue 或联系项目维护者。
+- **GitHub**: [HecreReed/ai-quote-website](https://github.com/HecreReed/ai-quote-website)
+- **Issues**: [提交问题](https://github.com/HecreReed/ai-quote-website/issues)
+
+---
+
+> 💡 **提示**: 这是一个开源项目，欢迎贡献代码或提供建议！
